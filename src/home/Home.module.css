@@ -1,0 +1,14 @@
+.user-input-form {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.user-input-form label {
+    font-size: 1.5rem;
+}
+
+.user-input-form input {
+    font-size: 1.25rem;
+    margin: 10px;
+}
