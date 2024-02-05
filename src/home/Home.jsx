@@ -35,15 +35,14 @@ export default function Home() {
                     <input type="text" placeholder='Enter City Name*' required onChange={event => setCity(event.target.value)} value={city}/>
                 </label>
                 <label>
-                    <input type="text" placeholder='Enter State Code:' onChange={event => setState(event.target.value)} value={state} />
+                    <input type="text" placeholder='Enter State Code' onChange={event => setState(event.target.value)} value={state} />
                 </label>
                 <label>
-                    <input type="text" placeholder='Enter Country Code:' onChange={event => setCountryCode(event.target.value)} value={countryCode} />
+                    <input type="text" placeholder='Enter Country Code' onChange={event => setCountryCode(event.target.value)} value={countryCode} />
                 </label>
                 <label>
-                    Select a unit of measurement:
                     <select id="units" required onChange={event => setUnits(event.target.value)} value={units}>
-                        <option value="">---MAKE A SELECTION---</option>
+                        <option value="">---SELECT A UNIT OF MEASUREMENT---</option>
                         <option value="metric">Celsius</option>
                         <option value="imperial">Fahrenheit</option>
                     </select>
