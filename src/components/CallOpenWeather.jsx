@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import styles from './CallOpenWeather.module.css';
 
 export default function CallOpenWeather() {
