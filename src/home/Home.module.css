@@ -37,7 +37,7 @@ h2 {
 
 .user-input-form select {
     margin: 10px;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     border-radius: 5px;
     width: 100%;
     text-align: center;
@@ -77,10 +77,21 @@ button {
     .user-input-form input {
         font-size: 1rem;
         margin: 10px 0;
+        height: 25px;
     }
 
     .user-input-form select {
         font-size: 0.75rem;
         margin: 10px 0;
+        height: 30px;
+    }
+}
+
+/* tablet or small screen styles */
+
+@media only screen and (max-width: 1024px) {
+    .user-input-form {
+        width: 85%;
+        gap: 30px;
     }
 }
