@@ -7,18 +7,15 @@ import styles from './Home.module.css';
 export default function Home() {
 
     const [city, setCity] = useState('');
-    const [state, setState] = useState('');
     const [countryCode, setCountryCode] = useState('');
     const [units, setUnits] = useState('');
-    const { searchWeatherByCityName, searchWeatherByCityStateCountry, searchWeatherByCityAndCountryCode, error, data, reset } = useOpenWeather();
+    const { searchWeatherByCityName, searchWeatherByCityAndCountryCode, error, data, reset } = useOpenWeather();
     const timezoneOffsetInHours = data.timezone / 3600;
 
     const handleSubmit = async event => {
         event.preventDefault();
-        if (city !== '' && state !== '' && countryCode !== ''){
-            await searchWeatherByCityStateCountry(city, state, countryCode, units);
-        } else if (city !== '' && state !== '') {
-            await searchWeatherByCityAndCountryCode(city, countryCode || 'US', units);
+        if (city !== '' && countryCode !== ''){
+            await searchWeatherByCityAndCountryCode(city, countryCode, units);
         } else {
             await searchWeatherByCityName(city,units);
         };
@@ -27,7 +24,6 @@ export default function Home() {
     const handleReset = (event) => {
         event.preventDefault();
         setCity('');
-        setState('');
         setCountryCode('');
         setUnits('');
         reset();
@@ -43,10 +39,7 @@ export default function Home() {
                     <input type="text" placeholder='Enter City Name*' required onChange={event => setCity(event.target.value)} value={city}/>
                 </label>
                 <label>
-                    <input type="text" placeholder='Enter State or Providence Code' onChange={event => setState(event.target.value)} value={state} />
-                </label>
-                <label>
-                    <input type="text" placeholder='Enter Country Code' onChange={event => setCountryCode(event.target.value)} value={countryCode} />
+                    <input type="text" placeholder='Enter Country Code (ex: US or USA)' onChange={event => setCountryCode(event.target.value)} value={countryCode} />
                 </label>
                 <label>
                     <select id="units" required onChange={event => setUnits(event.target.value)} value={units}>
@@ -60,7 +53,7 @@ export default function Home() {
             )}
             {data && (
                 <div>
-                    <h2>{data.name}, {state !== '' && state + ','} {data.sys.country}</h2>
+                    <h2>{data.name}, {data.sys.country}</h2>
                     <div className={styles['temperatures']}>
                         <p>Current Temp: {Math.round(data.main.feels_like)}°{units === 'metric' ? 'C' : units === 'imperial' ? 'F': 'K'}</p>
                         <p>Feels Like: {Math.round(data.main.temp)}°{units === 'metric' ? 'C' : units === 'imperial' ? 'F': 'K'}</p>
