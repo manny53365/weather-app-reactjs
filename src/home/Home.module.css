@@ -23,19 +23,22 @@ h2 {
 }
 
 .user-input-form label {
-    font-size: 1.5rem;
+    width: 80%;
 }
 
 .user-input-form input {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     margin: 10px;
     border-radius: 5px;
+    width: 100%;
 }
 
 .user-input-form select {
     margin: 10px;
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     border-radius: 5px;
+    width: 100%;
+    text-align: center;
 }
 
 button {
