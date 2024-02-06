@@ -2,5 +2,18 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 15%;
+    height: 8%;
+    background-color: #2C3A47;
+    color: #EAB543;
+    text-align: center;
+}
+
+.copyright {
+    font-size: 1.125rem;
+}
+
+.gh-link {
+    padding: 0 10px;
+    font-size: 1.25rem;
+    color: #EAB543;
 }
