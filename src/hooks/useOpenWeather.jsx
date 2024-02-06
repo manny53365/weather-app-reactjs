@@ -13,7 +13,7 @@ export const useOpenWeather = () => {
     city = city.trim();
 
     try {
-      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${APIKey}`);
+      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&lang=${lang}&appid=${APIKey}`);
       setData(response.data);
       setError(null);
     } catch (err) {
@@ -32,7 +32,7 @@ export const useOpenWeather = () => {
     country = country.trim();
 
     try {
-      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=${units}&appid=${APIKey}`);
+      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&lang=${lang}&units=${units}&appid=${APIKey}`);
       setData(response.data);
       setError(null);
     } catch (err){

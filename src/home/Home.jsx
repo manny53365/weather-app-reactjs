@@ -76,6 +76,7 @@ export default function Home() {
         setCity('');
         setCountryCode('');
         setUnits('');
+        setSelectedLang('');
         reset();
     };
 
@@ -99,6 +100,7 @@ export default function Home() {
                     </select>
                 </label>
                 <label>
+                    NOTE: This will only translate the description of the weather
                     <select id="supported-langs" onChange={event => setSelectedLang(event.target.value)} value={selectedLang || 'en'}>
                         {supportedLangs.map(lang => (
                             <option value={lang.lang_code}>{lang.displayText}</option>
@@ -112,6 +114,7 @@ export default function Home() {
                 <div>
                     <h2>{data.name}, {data.sys.country}</h2>
                     <div className={styles['temperatures']}>
+                        <p>Currently: {data.weather[0].description}</p>
                         <p>Current Temp: {Math.round(data.main.feels_like)}°{units === 'metric' ? 'C' : units === 'imperial' ? 'F': 'K'}</p>
                         <p>Feels Like: {Math.round(data.main.temp)}°{units === 'metric' ? 'C' : units === 'imperial' ? 'F': 'K'}</p>
                         <p>Low: {Math.round(data.main.temp_min)}°{units === 'metric' ? 'C' : units === 'imperial' ? 'F': 'K'}</p>
