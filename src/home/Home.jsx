@@ -100,7 +100,7 @@ export default function Home() {
                     </select>
                 </label>
                 <label>
-                    NOTE: This will only translate the description of the weather
+                    NOTE: This will only translate the description of the weather to the selected language
                     <select id="supported-langs" onChange={event => setSelectedLang(event.target.value)} value={selectedLang || 'en'}>
                         {supportedLangs.map(lang => (
                             <option value={lang.lang_code}>{lang.displayText}</option>
