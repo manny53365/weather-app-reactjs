@@ -24,6 +24,8 @@ h2 {
 
 .user-input-form label {
     width: 70%;
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
 .user-input-form input {
