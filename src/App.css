@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 .App {
   text-align: center;
   min-height: 100vh;
   margin: 0;
   padding: 0;
   background-color: #58B19F;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
 }

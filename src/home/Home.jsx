@@ -60,10 +60,10 @@ export default function Home() {
                         <p>High: {Math.round(data.main.temp_max)}°{units === 'metric' ? 'C' : units === 'imperial' ? 'F': 'K'}</p>
                         <p>Humidity: {Math.round(data.main.humidity)}</p>
                     </div>
-                    <div className={'wind-speeds'}>
+                    <div className={styles['wind-speeds']}>
                         <p>Wind Speed: {data.wind.speed}</p>
                     </div>
-                    <div style={styles['sun-info']}>
+                    <div className={styles['sun-info']}>
                         <p>Sunrise: {new Date(data.sys.sunrise * 1000).toLocaleTimeString()}</p>
                         <p>Sunset: {new Date(data.sys.sunset * 1000).toLocaleTimeString()}</p>
                     </div>

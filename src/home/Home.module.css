@@ -5,6 +5,10 @@ h1 {
     color: #EAB543;
 }
 
+h2 {
+    font-size: 2.5rem;
+}
+
 .user-input-form {
     display: flex;
     flex-direction: column;
@@ -41,4 +45,8 @@ button {
     color: #EAB543;
     font-size: 1.2rem;
     border-radius: 10px;
+}
+
+.temperatures, .wind-speeds , .sun-info {
+    font-size: 1.25rem;
 }
