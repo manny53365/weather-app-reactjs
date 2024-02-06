@@ -53,3 +53,29 @@ button {
 .temperatures, .wind-speeds , .sun-info {
     font-size: 1.25rem;
 }
+
+/* mobile screen styles  */
+
+@media only screen and (max-width: 767px) {
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .user-input-form {
+        width: 90%;
+        gap: 20px;
+    }
+
+    .user-input-form label {
+        width: 85%;
+    }
+
+    .user-input-form input {
+        font-size: 1rem;
+    }
+
+    .user-input-form select {
+        font-size: 0.75rem;
+    }
+}
