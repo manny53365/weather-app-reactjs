@@ -24,6 +24,8 @@ h2 {
 
 .user-input-form label {
     width: 70%;
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
 .user-input-form input {
@@ -69,6 +71,7 @@ button {
 
     .user-input-form label {
         width: 85%;
+        font-size: 0.75rem;
     }
 
     .user-input-form input {
