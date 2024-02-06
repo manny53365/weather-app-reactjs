@@ -90,7 +90,7 @@ export default function Home() {
                     <input type="text" placeholder='Enter City Name*' required onChange={event => setCity(event.target.value)} value={city}/>
                 </label>
                 <label>
-                    <input type="text" placeholder='Enter Country Code (ex: US or USA)' onChange={event => setCountryCode(event.target.value)} value={countryCode} />
+                    <input type="text" placeholder='Enter Country Code (ex: US)' onChange={event => setCountryCode(event.target.value)} value={countryCode} />
                 </label>
                 <label>
                     <select id="units" required onChange={event => setUnits(event.target.value)} value={units}>
