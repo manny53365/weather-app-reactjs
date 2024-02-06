@@ -41,7 +41,7 @@ export default function Home() {
                     <input type="text" placeholder='Enter City Name*' required onChange={event => setCity(event.target.value)} value={city}/>
                 </label>
                 <label>
-                    <input type="text" placeholder='Enter State Code' onChange={event => setState(event.target.value)} value={state} />
+                    <input type="text" placeholder='Enter State or Providence Code' onChange={event => setState(event.target.value)} value={state} />
                 </label>
                 <label>
                     <input type="text" placeholder='Enter Country Code' onChange={event => setCountryCode(event.target.value)} value={countryCode} />
