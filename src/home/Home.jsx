@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useOpenWeather } from '../hooks/useOpenWeather';
+import moment from 'moment';
 
 import styles from './Home.module.css';
 
@@ -10,6 +11,7 @@ export default function Home() {
     const [countryCode, setCountryCode] = useState('');
     const [units, setUnits] = useState('');
     const { searchWeatherByCityName, searchWeatherByCityStateCountry, searchWeatherByCityAndCountryCode, error, data, reset } = useOpenWeather();
+    const timezoneOffsetInHours = data.timezone / 3600;
 
     const handleSubmit = async event => {
         event.preventDefault();
@@ -70,8 +72,8 @@ export default function Home() {
                         <p>Wind Speed: {data.wind.speed}</p>
                     </div>
                     <div className={styles['sun-info']}>
-                        <p>Sunrise: {new Date(data.sys.sunrise * 1000).toLocaleTimeString()}</p>
-                        <p>Sunset: {new Date(data.sys.sunset * 1000).toLocaleTimeString()}</p>
+                        <p>Sunrise: {moment.unix(data.sys.sunrise).utcOffset(timezoneOffsetInHours).format('HH:mm:ss')}</p>
+                        <p>Sunset: {moment.unix(data.sys.sunset).utcOffset(timezoneOffsetInHours).format('HH:mm:ss')}</p>
                     </div>
                     <button type='submit' onClick={handleReset}>Search again</button>
                 </div>
