@@ -52,7 +52,7 @@ export default function Home() {
             )}
             {data && (
                 <div>
-                    <h2>{data.name}, {data.sys.country}</h2>
+                    <h2>{data.name},{state !== '' && state + ','} {data.sys.country}</h2>
                     <div className={styles['temperatures']}>
                         <p>Current Temp: {Math.round(data.main.feels_like)}°{units === 'metric' ? 'C' : units === 'imperial' ? 'F': 'K'}</p>
                         <p>Feels Like: {Math.round(data.main.temp)}°{units === 'metric' ? 'C' : units === 'imperial' ? 'F': 'K'}</p>
