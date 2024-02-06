@@ -119,14 +119,14 @@ export default function Home() {
                         <p>Feels Like: {Math.round(data.main.temp)}°{units === 'metric' ? 'C' : units === 'imperial' ? 'F': 'K'}</p>
                         <p>Low: {Math.round(data.main.temp_min)}°{units === 'metric' ? 'C' : units === 'imperial' ? 'F': 'K'}</p>
                         <p>High: {Math.round(data.main.temp_max)}°{units === 'metric' ? 'C' : units === 'imperial' ? 'F': 'K'}</p>
-                        <p>Humidity: {Math.round(data.main.humidity)}</p>
+                        <p>Humidity: {Math.round(data.main.humidity)}%</p>
                     </div>
                     <div className={styles['wind-speeds']}>
-                        <p>Wind Speed: {data.wind.speed}</p>
+                        <p>Wind Speed: {data.wind.speed} {units === 'metric' ? 'km/h' : 'mph'}</p>
                     </div>
                     <div className={styles['sun-info']}>
-                        <p>Sunrise: {moment.unix(data.sys.sunrise).utcOffset(timezoneOffsetInHours).format('HH:mm:ss')}</p>
-                        <p>Sunset: {moment.unix(data.sys.sunset).utcOffset(timezoneOffsetInHours).format('HH:mm:ss')}</p>
+                        <p>Sunrise: {moment.unix(data.sys.sunrise).utcOffset(timezoneOffsetInHours).format('h:mm:ss A')}</p>
+                        <p>Sunset: {moment.unix(data.sys.sunset).utcOffset(timezoneOffsetInHours).format('h:mm:ss A')}</p>
                     </div>
                     <button type='submit' onClick={handleReset}>Search again</button>
                 </div>
