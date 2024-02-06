@@ -7,7 +7,7 @@ export const useOpenWeather = () => {
   const [data, setData] = useState('');
   const APIKey = '086194c2daa42405db72f49319d70778';
 
-  const searchWeatherByCityName = async (city, units) => {
+  const searchWeatherByCityName = async (city, units, lang) => {
     setError(null);
 
     city = city.trim();
@@ -25,7 +25,7 @@ export const useOpenWeather = () => {
     setData('');
   };
 
-  const searchWeatherByCityAndCountryCode = async (city, country, units) => {
+  const searchWeatherByCityAndCountryCode = async (city, country, units, lang) => {
     setError(null);
 
     city = city.trim();
