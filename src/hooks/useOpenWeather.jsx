@@ -23,17 +23,6 @@ export const useOpenWeather = () => {
     setData('');
   };
 
-  const searchWeatherByCityStateCountry = async (city, state, country, units) => {
-    setError(null);
-    try {
-      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city},${state},${country}&units=${units}&appid=${APIKey}`);
-      setData(response.data);
-      setError(null);
-    } catch (err){
-      setError(err.message);
-    }
-  }
-
   const searchWeatherByCityAndCountryCode = async (city, country, units) => {
     setError(null);
     try {
@@ -45,5 +34,5 @@ export const useOpenWeather = () => {
     }
   }
 
-  return {searchWeatherByCityName, searchWeatherByCityStateCountry, searchWeatherByCityAndCountryCode, reset, error, data}
+  return {searchWeatherByCityName, searchWeatherByCityAndCountryCode, reset, error, data}
 }
