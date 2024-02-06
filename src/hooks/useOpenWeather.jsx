@@ -7,6 +7,15 @@ export const useOpenWeather = () => {
   const [data, setData] = useState('');
   const APIKey = '086194c2daa42405db72f49319d70778';
 
+  const toTitleCase = (str) => {
+    return str.replace(
+      /\w\S*/g,
+      function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      }
+    );
+  }
+
   const searchWeatherByCityName = async (city, units, lang) => {
     setError(null);
 
@@ -14,6 +23,7 @@ export const useOpenWeather = () => {
 
     try {
       const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&lang=${lang}&appid=${APIKey}`);
+      response.data.weather[0].description = toTitleCase(response.data.weather[0].description);
       setData(response.data);
       setError(null);
     } catch (err) {
@@ -33,6 +43,7 @@ export const useOpenWeather = () => {
 
     try {
       const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&lang=${lang}&units=${units}&appid=${APIKey}`);
+      response.data.weather[0].description = toTitleCase(response.data.weather[0].description);
       setData(response.data);
       setError(null);
     } catch (err){
