@@ -9,11 +9,17 @@ export default function Home() {
     const [state, setState] = useState('');
     const [countryCode, setCountryCode] = useState('');
     const [units, setUnits] = useState('');
-    const { searchWeatherByCityName, error, data, reset } = useOpenWeather();
+    const { searchWeatherByCityName, searchWeatherByCityStateCountry, searchWeatherByCityAndCountryCode, error, data, reset } = useOpenWeather();
 
     const handleSubmit = async event => {
         event.preventDefault();
-        await searchWeatherByCityName(city,units);
+        if (city !== '' && state !== '' && countryCode !== ''){
+            await searchWeatherByCityStateCountry(city, state, countryCode, units);
+        } else if (city !== '' && state !== '') {
+            await searchWeatherByCityAndCountryCode(city, countryCode || 'US', units);
+        } else {
+            await searchWeatherByCityName(city,units);
+        };
     };
 
     const handleReset = (event) => {
@@ -52,7 +58,7 @@ export default function Home() {
             )}
             {data && (
                 <div>
-                    <h2>{data.name},{state !== '' && state + ','} {data.sys.country}</h2>
+                    <h2>{data.name}, {state !== '' && state + ','} {data.sys.country}</h2>
                     <div className={styles['temperatures']}>
                         <p>Current Temp: {Math.round(data.main.feels_like)}°{units === 'metric' ? 'C' : units === 'imperial' ? 'F': 'K'}</p>
                         <p>Feels Like: {Math.round(data.main.temp)}°{units === 'metric' ? 'C' : units === 'imperial' ? 'F': 'K'}</p>
