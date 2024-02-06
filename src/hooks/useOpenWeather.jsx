@@ -11,15 +11,9 @@ export const useOpenWeather = () => {
     setError(null);
 
     try {
-      if (units !== ''){
-        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${APIKey}`);
-        setData(response.data);
-        setError(null);
-      } else {
-        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`);
-        setData(response.data);
-        setError(null);
-      }
+      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${APIKey}`);
+      setData(response.data);
+      setError(null);
     } catch (err) {
       setError(err.message);
     };
@@ -29,5 +23,27 @@ export const useOpenWeather = () => {
     setData('');
   };
 
-  return {searchWeatherByCityName, reset, error, data}
+  const searchWeatherByCityStateCountry = async (city, state, country, units) => {
+    setError(null);
+    try {
+      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city},${state},${country}&units=${units}&appid=${APIKey}`);
+      setData(response.data);
+      setError(null);
+    } catch (err){
+      setError(err.message);
+    }
+  }
+
+  const searchWeatherByCityAndCountryCode = async (city, country, units) => {
+    setError(null);
+    try {
+      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=${units}&appid=${APIKey}`);
+      setData(response.data);
+      setError(null);
+    } catch (err){
+      setError(err.message);
+    }
+  }
+
+  return {searchWeatherByCityName, searchWeatherByCityStateCountry, searchWeatherByCityAndCountryCode, reset, error, data}
 }
